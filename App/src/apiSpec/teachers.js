@@ -38,7 +38,7 @@ module.exports.definitions = {
 module.exports.paths = {
   "/teachers": {
     get: {
-      summary: 'Get all teachers',
+      operationId: 'get_all_teachers',
       description: 'Get all teachers',
       tags: ['Teacher'],
       responses: {
@@ -51,13 +51,16 @@ module.exports.paths = {
             },
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     post: {
-      summary: 'Create teacher',
+      operationId: 'create_teacher',
       description: 'Create new teacher',
       tags: ['Teacher'],
       parameters: [
@@ -77,13 +80,16 @@ module.exports.paths = {
             $ref: '#/definitions/Teacher'
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     put: {
-      summary: 'Update teacher',
+      operationId: 'update_teacher',
       description: 'Update teacher',
       tags: ['Teacher'],
       parameters: [{
@@ -102,17 +108,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Teacher not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     }
   },
   "/teachers/{id}": {
     get: {
-      summary: 'Get teacher by id',
+      operationId: 'get_teacher_by_id',
       description: 'Get teacher by id',
       tags: ['Teacher'],
       parameters: [
@@ -131,15 +143,21 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Teacher not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     delete: {
-      summary: 'Delete teacher by id',
+      operationId: 'delete_teacher_by_id',
       description: 'Delete teacher by id',
       tags: ['Teacher'],
       parameters: [
@@ -154,14 +172,20 @@ module.exports.paths = {
         204: {
           description: 'Successful response. Teacher is deleted.',
           schema: {
-            $ref: '#/responses/NoContent',
+            $ref: '#/definitions/NoContent',
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Teacher not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },

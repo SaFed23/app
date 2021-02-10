@@ -70,7 +70,7 @@ module.exports.definitions = {
 module.exports.paths = {
   "/journals": {
     get: {
-      summary: 'Get all journals',
+      operationId: 'get_all_journals',
       description: 'Get all journals',
       tags: ['Journal'],
       responses: {
@@ -84,12 +84,15 @@ module.exports.paths = {
           },
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     post: {
-      summary: 'Create journal',
+      operationId: 'create_journal',
       description: 'Create new journal',
       tags: ['Journal'],
       parameters: [
@@ -110,12 +113,15 @@ module.exports.paths = {
           },
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     put: {
-      summary: 'Update journal',
+      operationId: 'update_journal',
       description: 'Update journal',
       tags: ['Journal'],
       parameters: [{
@@ -134,17 +140,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     }
   },
   "/journals/{id}": {
     get: {
-      summary: 'Get journal by id',
+      operationId: 'get_journal_by_id',
       description: 'Get journal by id',
       tags: ['Journal'],
       parameters: [
@@ -163,15 +175,21 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     delete: {
-      summary: 'Delete journal by id',
+      operationId: 'delete_journal_by_id',
       description: 'Delete journal by id',
       tags: ['Journal'],
       parameters: [
@@ -186,21 +204,27 @@ module.exports.paths = {
         204: {
           description: 'Successful response. Journal is deleted.',
           schema: {
-            $ref: '#/responses/NoContent',
+            $ref: '#/definitions/NoContent',
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
   },
   "/journals/grade/{grade}": {
     get: {
-      summary: 'Get journal by grade',
+      operationId: 'get_journal_by_grade',
       description: 'Get journal by grade',
       tags: ['Journal'],
       parameters: [
@@ -222,17 +246,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
   },
   "/journals/lesson/{lesson_id}": {
     get: {
-      summary: 'Get journal by lesson_id',
+      operationId: 'get_journal_by_lesson_id',
       description: 'Get journal by lesson_id',
       tags: ['Journal'],
       parameters: [
@@ -254,17 +284,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
   },
   "/journals/pupil/{pupil_id}": {
     get: {
-      summary: 'Get journal by pupil_id',
+      operationId: 'get_journal_by_pupil_id',
       description: 'Get journal by pupil_id',
       tags: ['Journal'],
       parameters: [
@@ -286,10 +322,16 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Journal not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
         500: {
-          $ref: '#/responses/UnknownServerError',
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },

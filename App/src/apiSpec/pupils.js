@@ -54,7 +54,7 @@ module.exports.definitions = {
 module.exports.paths = {
   "/pupils": {
     get: {
-      summary: 'Get all pupils',
+      operationId: 'get_all_pupils',
       description: 'Get all pupils',
       tags: ['Pupil'],
       responses: {
@@ -67,13 +67,16 @@ module.exports.paths = {
             },
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     post: {
-      summary: 'Create pupil',
+      operationId: 'create_pupil',
       description: 'Create new pupil',
       tags: ['Pupil'],
       parameters: [
@@ -93,13 +96,16 @@ module.exports.paths = {
             $ref: '#/definitions/Pupil'
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     put: {
-      summary: 'Update pupil',
+      operationId: 'update_pupil',
       description: 'Update pupil',
       tags: ['Pupil'],
       parameters: [{
@@ -118,17 +124,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Pupil not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     }
   },
   "/pupils/{id}": {
     get: {
-      summary: 'Get pupil by id',
+      operationId: 'get_pupil_by_id',
       description: 'Get pupil by id',
       tags: ['Pupil'],
       parameters: [
@@ -147,15 +159,21 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Pupil not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     delete: {
-      summary: 'Delete pupil by id',
+      operationId: 'delete_pupil_by_id',
       description: 'Delete pupil by id',
       tags: ['Pupil'],
       parameters: [
@@ -170,14 +188,20 @@ module.exports.paths = {
         204: {
           description: 'Successful response. Pupil is deleted.',
           schema: {
-            $ref: '#/responses/NoContent',
+            $ref: '#/definitions/NoContent',
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Pupil not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },

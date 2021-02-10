@@ -1,0 +1,1085 @@
+{
+    "basePath": "/",
+    "definitions": {
+        "Error": {
+            "description": "Error messages",
+            "example": {
+                "code": 1000,
+                "message": "Unknown error with API"
+            },
+            "properties": {
+                "code": {
+                    "description": "Four-digits error code",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Error description",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code"
+            ],
+            "type": "object"
+        },
+        "Journal": {
+            "description": "Journal object",
+            "properties": {
+                "date_of_note": {
+                    "description": "Date of the note in journal",
+                    "type": "string"
+                },
+                "grade": {
+                    "description": "Grade of the journal",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Id of the journal",
+                    "type": "number"
+                },
+                "is_exam": {
+                    "description": "Is the note of the exam?",
+                    "type": "boolean"
+                },
+                "lesson_id": {
+                    "description": "Lesson of the note in journal",
+                    "type": "number"
+                },
+                "mark": {
+                    "description": "Mark of the note in journal",
+                    "type": "number"
+                },
+                "pupil_id": {
+                    "description": "Pupil of the note in journal",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "pupil_id",
+                "mark",
+                "lesson_id",
+                "grade",
+                "date_of_note",
+                "is_exam"
+            ],
+            "type": "object"
+        },
+        "JournalWithoutId": {
+            "description": "Journal object",
+            "properties": {
+                "date_of_note": {
+                    "description": "Date of the note in journal",
+                    "type": "string"
+                },
+                "grade": {
+                    "description": "Grade of the journal",
+                    "type": "number"
+                },
+                "is_exam": {
+                    "description": "Is the note of the exam?",
+                    "type": "boolean"
+                },
+                "lesson_id": {
+                    "description": "Lesson of the note in journal",
+                    "type": "number"
+                },
+                "mark": {
+                    "description": "Mark of the note in journal",
+                    "type": "number"
+                },
+                "pupil_id": {
+                    "description": "Pupil of the note in journal",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "pupil_id",
+                "mark",
+                "lesson_id",
+                "grade",
+                "date_of_note",
+                "is_exam"
+            ],
+            "type": "object"
+        },
+        "Lesson": {
+            "description": "Lesson object",
+            "properties": {
+                "id": {
+                    "description": "Id of the lesson",
+                    "type": "number"
+                },
+                "teacher_id": {
+                    "description": "Teacher of the lesson",
+                    "type": "number"
+                },
+                "title": {
+                    "description": "Name of the lesson",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "title",
+                "teacher_id"
+            ],
+            "type": "object"
+        },
+        "LessonWithoutId": {
+            "description": "Lesson object",
+            "properties": {
+                "teacher_id": {
+                    "description": "Teacher of the lesson",
+                    "type": "number"
+                },
+                "title": {
+                    "description": "Name of the lesson",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title",
+                "teacher_id"
+            ],
+            "type": "object"
+        },
+        "NoContent": {
+            "description": "Success no content response",
+            "type": "string"
+        },
+        "NotFoundError": {
+            "description": "Not found error",
+            "properties": {
+                "code": {
+                    "description": "Four-digits error code",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Error description",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code"
+            ],
+            "type": "object"
+        },
+        "Pupil": {
+            "description": "Pupil object",
+            "properties": {
+                "age": {
+                    "description": "Age of the pupil",
+                    "type": "number"
+                },
+                "first_name": {
+                    "description": "First name of the pupil",
+                    "type": "string"
+                },
+                "grade": {
+                    "description": "Grade of the pupil",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Id of the pupil",
+                    "type": "number"
+                },
+                "last_name": {
+                    "description": "Last name of the pupil",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "first_name",
+                "last_name",
+                "age",
+                "grade"
+            ],
+            "type": "object"
+        },
+        "PupilWithoutId": {
+            "description": "Pupil object",
+            "properties": {
+                "age": {
+                    "description": "Age of the pupil",
+                    "type": "number"
+                },
+                "first_name": {
+                    "description": "First name of the pupil",
+                    "type": "string"
+                },
+                "grade": {
+                    "description": "Grade of the pupil",
+                    "type": "number"
+                },
+                "last_name": {
+                    "description": "Last name of the pupil",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "first_name",
+                "last_name",
+                "age",
+                "grade"
+            ],
+            "type": "object"
+        },
+        "Teacher": {
+            "description": "Teacher object",
+            "properties": {
+                "first_name": {
+                    "description": "First name of the teacher",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id of the teacher",
+                    "type": "number"
+                },
+                "last_name": {
+                    "description": "Last name of the teacher",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "first_name",
+                "last_name"
+            ],
+            "type": "object"
+        },
+        "TeacherWithoutId": {
+            "description": "Teacher object",
+            "properties": {
+                "first_name": {
+                    "description": "First name of the teacher",
+                    "type": "string"
+                },
+                "last_name": {
+                    "description": "Last name of the teacher",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "first_name",
+                "last_name"
+            ],
+            "type": "object"
+        },
+        "UnknownServerError": {
+            "description": "Unknown server error",
+            "properties": {
+                "code": {
+                    "description": "Four-digits error code",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Error description",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code"
+            ],
+            "type": "object"
+        }
+    },
+    "host": "app.endpoints.my-first-app-123.cloud.goog",
+    "info": {
+        "description": "Description",
+        "title": "App",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/journals": {
+            "get": {
+                "description": "Get all journals",
+                "operationId": "get_all_journals",
+                "responses": {
+                    "200": {
+                        "description": "Successful response. All journals are returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Journal"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            },
+            "post": {
+                "description": "Create new journal",
+                "operationId": "create_journal",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Journal",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/JournalWithoutId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Journal is created",
+                        "schema": {
+                            "$ref": "#/definitions/Journal"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            },
+            "put": {
+                "description": "Update journal",
+                "operationId": "update_journal",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Journal",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Journal"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Journal is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Journal"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            }
+        },
+        "/journals/grade/{grade}": {
+            "get": {
+                "description": "Get journal by grade",
+                "operationId": "get_journal_by_grade",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "grade",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Journal is returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Journal"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            }
+        },
+        "/journals/lesson/{lesson_id}": {
+            "get": {
+                "description": "Get journal by lesson_id",
+                "operationId": "get_journal_by_lesson_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "lesson_id",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Journal is returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Journal"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            }
+        },
+        "/journals/pupil/{pupil_id}": {
+            "get": {
+                "description": "Get journal by pupil_id",
+                "operationId": "get_journal_by_pupil_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "pupil_id",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Journal is returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Journal"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            }
+        },
+        "/journals/{id}": {
+            "delete": {
+                "description": "Delete journal by id",
+                "operationId": "delete_journal_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful response. Journal is deleted.",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            },
+            "get": {
+                "description": "Get journal by id",
+                "operationId": "get_journal_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Journal is returned.",
+                        "schema": {
+                            "$ref": "#/definitions/Journal"
+                        }
+                    },
+                    "404": {
+                        "description": "Journal not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Journal"
+                ]
+            }
+        },
+        "/lessons": {
+            "get": {
+                "description": "Get all lessons",
+                "operationId": "get_all_lessons",
+                "responses": {
+                    "200": {
+                        "description": "Successful response. All lessons are returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Lesson"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Lesson"
+                ]
+            },
+            "post": {
+                "description": "Create new lesson",
+                "operationId": "create_lesson",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Lesson",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LessonWithoutId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Lesson is created",
+                        "schema": {
+                            "$ref": "#/definitions/Lesson"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Lesson"
+                ]
+            },
+            "put": {
+                "description": "Update lesson",
+                "operationId": "update_lesson",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Lesson",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Lesson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Lesson is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Lesson"
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Lesson"
+                ]
+            }
+        },
+        "/lessons/{id}": {
+            "delete": {
+                "description": "Delete lesson by id",
+                "operationId": "delete_lesson_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful response. Lesson is deleted.",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Lesson"
+                ]
+            },
+            "get": {
+                "description": "Get lesson by id",
+                "operationId": "get_lesson_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Lesson is returned.",
+                        "schema": {
+                            "$ref": "#/definitions/Lesson"
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Lesson"
+                ]
+            }
+        },
+        "/pupils": {
+            "get": {
+                "description": "Get all pupils",
+                "operationId": "get_all_pupils",
+                "responses": {
+                    "200": {
+                        "description": "Successful response. All pupils are returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Pupil"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Pupil"
+                ]
+            },
+            "post": {
+                "description": "Create new pupil",
+                "operationId": "create_pupil",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Pupil",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PupilWithoutId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Pupil is created",
+                        "schema": {
+                            "$ref": "#/definitions/Pupil"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Pupil"
+                ]
+            },
+            "put": {
+                "description": "Update pupil",
+                "operationId": "update_pupil",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Pupil",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Pupil"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Pupil is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Pupil"
+                        }
+                    },
+                    "404": {
+                        "description": "Pupil not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Pupil"
+                ]
+            }
+        },
+        "/pupils/{id}": {
+            "delete": {
+                "description": "Delete pupil by id",
+                "operationId": "delete_pupil_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful response. Pupil is deleted.",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Pupil not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Pupil"
+                ]
+            },
+            "get": {
+                "description": "Get pupil by id",
+                "operationId": "get_pupil_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Pupil is returned.",
+                        "schema": {
+                            "$ref": "#/definitions/Pupil"
+                        }
+                    },
+                    "404": {
+                        "description": "Pupil not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Pupil"
+                ]
+            }
+        },
+        "/teachers": {
+            "get": {
+                "description": "Get all teachers",
+                "operationId": "get_all_teachers",
+                "responses": {
+                    "200": {
+                        "description": "Successful response. All teachers are returned.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Teacher"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Teacher"
+                ]
+            },
+            "post": {
+                "description": "Create new teacher",
+                "operationId": "create_teacher",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Teacher",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TeacherWithoutId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Teacher is created",
+                        "schema": {
+                            "$ref": "#/definitions/Teacher"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Teacher"
+                ]
+            },
+            "put": {
+                "description": "Update teacher",
+                "operationId": "update_teacher",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Teacher",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Teacher"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response. Teacher is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Teacher"
+                        }
+                    },
+                    "404": {
+                        "description": "Teacher not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Teacher"
+                ]
+            }
+        },
+        "/teachers/{id}": {
+            "delete": {
+                "description": "Delete teacher by id",
+                "operationId": "delete_teacher_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful response. Teacher is deleted.",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Teacher not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Teacher"
+                ]
+            },
+            "get": {
+                "description": "Get teacher by id",
+                "operationId": "get_teacher_by_id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response. Teacher is returned.",
+                        "schema": {
+                            "$ref": "#/definitions/Teacher"
+                        }
+                    },
+                    "404": {
+                        "description": "Teacher not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFoundError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unknown server error",
+                        "schema": {
+                            "$ref": "#/definitions/UnknownServerError"
+                        }
+                    }
+                },
+                "tags": [
+                    "Teacher"
+                ]
+            }
+        }
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0"
+}

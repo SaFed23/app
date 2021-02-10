@@ -28,28 +28,9 @@ const apiSpec = {
 		version: '1.0.0',
     },
     schemes: ['http', 'https'],
+	host: "app.endpoints.my-first-app-123.cloud.goog",
 	basePath: '/',
-	responses: {
-		// 204 No Content
-		NoContent: {
-			description: 'Success no content response',
-		},
-		// Error 404
-		NotFoundError: {
-			description: 'Not found error',
-			schema: {
-				$ref: '#/definitions/Error',
-			},
-		},
-		// Error 500
-		UnknownServerError: {
-			description: 'Unknown server error',
-			schema: {
-				$ref: '#/definitions/Error',
-			},
-		},
-	},
-  paths,
+  	paths,
 	definitions,
 }
 

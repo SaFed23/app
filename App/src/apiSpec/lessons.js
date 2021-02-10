@@ -38,7 +38,7 @@ module.exports.definitions = {
 module.exports.paths = {
   "/lessons": {
     get: {
-      summary: 'Get all lessons',
+      operationId: 'get_all_lessons',
       description: 'Get all lessons',
       tags: ['Lesson'],
       responses: {
@@ -51,13 +51,16 @@ module.exports.paths = {
             },
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     post: {
-      summary: 'Create lesson',
+      operationId: 'create_lesson',
       description: 'Create new lesson',
       tags: ['Lesson'],
       parameters: [
@@ -77,13 +80,16 @@ module.exports.paths = {
             $ref: '#/definitions/Lesson'
           },
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     put: {
-      summary: 'Update lesson',
+      operationId: 'update_lesson',
       description: 'Update lesson',
       tags: ['Lesson'],
       parameters: [{
@@ -102,17 +108,23 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Lesson not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     }
   },
   "/lessons/{id}": {
     get: {
-      summary: 'Get lesson by id',
+      operationId: 'get_lesson_by_id',
       description: 'Get lesson by id',
       tags: ['Lesson'],
       parameters: [
@@ -131,15 +143,21 @@ module.exports.paths = {
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Lesson not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
     delete: {
-      summary: 'Delete lesson by id',
+      operationId: 'delete_lesson_by_id',
       description: 'Delete lesson by id',
       tags: ['Lesson'],
       parameters: [
@@ -154,14 +172,20 @@ module.exports.paths = {
         204: {
           description: 'Successful response. Lesson is deleted.',
           schema: {
-            $ref: '#/responses/NoContent',
+            $ref: '#/definitions/NoContent',
           },
         },
         404: {
-          $ref: '#/responses/NotFoundError',
+          description: 'Lesson not found',
+          schema: {
+            $ref: '#/definitions/NotFoundError',
+          }
         },
-        500: {
-          $ref: '#/responses/UnknownServerError',
+        500: { 
+          description: 'Unknown server error',
+          schema: {
+            $ref: '#/definitions/UnknownServerError',
+          }
         },
       },
     },
